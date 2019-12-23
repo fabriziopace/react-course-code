@@ -1,0 +1,23 @@
+{
+  "name": "react-course-code",
+  "version": "1.0.0",
+  "description": "Code of React - The Complete Guide Course",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabriziopace/react-course-code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabriziopace/react-course-code/issues"
+  },
+  "homepage": "https://github.com/fabriziopace/react-course-code#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
