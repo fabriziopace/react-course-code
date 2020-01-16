@@ -7,18 +7,22 @@ class Persons extends Component {
     //     return state;
     // }
 
-    componentWillReceiveProps(props) {
-        console.log('[Persons.js] componentWillReceiveProps', props);
-    }
+    // componentWillReceiveProps(props) {
+    //     console.log('[Persons.js] componentWillReceiveProps', props);
+    // }
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('[Persons.js] shouldComponentUpdate');
-        return true;
+        if (nextProps.persons !== this.props.persons) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');
-        return {message: 'Snapshot!'};
+        return { message: 'Snapshot!' };
     }
 
     // componentWillUpdate(){
@@ -30,17 +34,20 @@ class Persons extends Component {
         console.log(snapshot);
     }
 
+    componentWillUnmount() {
+        console.log('[Person.js] componentWillUnmount');
+    }
+
     render() {
         console.log('[Person.js] rendering...');
         return this.props.persons.map((person, index) => {
             return <Person
-                click={() => this.props.clicked(index)}
+            click={() => this.props.clicked(index)}
                 name={person.name}
                 age={person.age}
                 key={person.id}
                 changed={(event) => this.props.changed(event, person.id)} />
-        })
-
+        });
     }
 };
 
