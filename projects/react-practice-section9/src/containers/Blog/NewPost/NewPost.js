@@ -11,6 +11,10 @@ class NewPost extends Component {
         submitted: false
     }
 
+    componentDidMount() {
+        console.log( this.props );
+    }
+
     postDataHandler = () => {
         const data = {
             title: this.state.title,
