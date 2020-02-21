@@ -15,3 +15,4 @@ Code of React - The Complete Guide Course
 5. React Practice Section 3
 6. React Practice Section 4
 7. Burger Builder 
+8. Redux Practice Section 14 
