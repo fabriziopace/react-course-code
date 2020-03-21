@@ -197,7 +197,7 @@ const mapStateToProps = state => {
 
 const mapDispatchProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(actions.purchaseBurgerStart(orderData))
+        onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData))
     };
 };
 
