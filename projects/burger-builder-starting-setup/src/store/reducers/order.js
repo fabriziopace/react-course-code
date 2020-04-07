@@ -23,7 +23,7 @@ const purchaseBurgerSuccess = (state, action) => {
         purchased: true,
         orders: state.orders.concat(newOrder)
     });
-}
+};
 
 const purchaseBurgerFail = (state, action) => {
     return updateObject(state, { loading: false });
@@ -31,7 +31,7 @@ const purchaseBurgerFail = (state, action) => {
 
 const fetchOrdersStart = (state, action) => {
     return updateObject(state, { loading: true });
-}
+};
 
 const fetchOrderSuccess = (state, action) => {
     return updateObject(state, {
