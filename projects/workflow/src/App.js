@@ -13,14 +13,16 @@ class App extends Component {
         return (
             <div>
                 <div>
-                    <Link to='/'>Users</Link>
+                    <Link to='/user'>Users</Link>
                     <Link to='/pizza'>Pizza</Link>
                 </div>
                 <div>
-                    <Route path='/' exact component={Users} />
-                    <Route path='/' component={AsyncPizza} />
+                    <Route path='/user' component={Users} />
+                    <Route path='/pizza' component={AsyncPizza} />
                 </div>
             </div>
         );
     }
 }
+
+export default App;
