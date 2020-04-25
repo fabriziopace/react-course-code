@@ -19,4 +19,4 @@ Code of React - The Complete Guide Course
 9. Redux Assignment Problem
 10. React Practice Section 9
 11. Workflow - Working with Webpack
-12. Next.js
+12. Next.js Section Course
