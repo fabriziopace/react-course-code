@@ -20,3 +20,4 @@ Code of React - The Complete Guide Course
 10. React Practice Section 9
 11. Workflow - Working with Webpack
 12. Next.js Section Course
+13. Animations in React Apps
