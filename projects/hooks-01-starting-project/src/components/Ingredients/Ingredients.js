@@ -8,7 +8,7 @@ const Ingredients = () => {
   const [userIngredients, setUserIngredients] = useState([]);
 
   useEffect(() => {
-    fetch('firebaseURL')
+    fetch('https://react-hooks-update.firebaseio.com/ingredients.json')
       .then(response => response.json())
       .then(responseData => {
         const loadedIngredients = [];
@@ -18,29 +18,35 @@ const Ingredients = () => {
             title: responseData[key].title,
             amount: responseData[key].amount
           });
-        };
+        }
         setUserIngredients(loadedIngredients);
       });
   }, []);
+
+  useEffect(() => {
+    console.log('RENDERING INGREDIENTS', userIngredients);
+  }, [userIngredients]);
 
   const addIngredientHandler = ingredient => {
     fetch('firebaseURL', {
       method: 'POST',
       body: JSON.stringify(ingredient),
       headers: { 'Content-Type': 'application/json' }
-    }).then(response => {
-      return response.json();
-    }).then(responseData => {
-      setUserIngredients(prevIngredients => [
-        ...prevIngredients,
-        { id: responseData.name, ...ingredient }
-      ]);
-    });
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(responseData => {
+        setUserIngredients(prevIngredients => [
+          ...prevIngredients,
+          { id: responseData.name, ...ingredient }
+        ]);
+      });
   };
 
   const removeIngredientHandler = ingredientId => {
     setUserIngredients(prevIngredients =>
-      prevIngredients.filter((ingredient) => ingredient.id !== ingredientId)
+      prevIngredients.filter(ingredient => ingredient.id !== ingredientId)
     );
   };
 
@@ -50,10 +56,13 @@ const Ingredients = () => {
 
       <section>
         <Search />
-        <IngredientList ingredients={userIngredients} onRemoveItem={removeIngredientHandler} />
+        <IngredientList
+          ingredients={userIngredients}
+          onRemoveItem={removeIngredientHandler}
+        />
       </section>
     </div>
   );
-}
+};
 
 export default Ingredients;
