@@ -12,7 +12,7 @@ const Search = React.memo(props => {
       enteredFilter.length === 0
         ? ''
         : `?orderBy="title"&equalTo="${enteredFilter}"`;
-    fetch('firebaseURL' + query)
+    fetch('firebaseUrl/ingredients.json' + query)
       .then(response => response.json())
       .then(responseData => {
         const loadedIngredients = [];
@@ -23,7 +23,7 @@ const Search = React.memo(props => {
             amount: responseData[key].amount
           });
         };
-        // onLoadIngredients(loadedIngredients);
+        onLoadIngredients(loadedIngredients);
       });
   }, [enteredFilter, onLoadIngredients]);
 
