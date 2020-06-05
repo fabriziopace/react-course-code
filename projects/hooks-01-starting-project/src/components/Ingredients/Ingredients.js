@@ -21,7 +21,7 @@ const ingredientReducer = (currentIngredients, action) => {
 
 const Ingredients = () => {
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
-  const { isLoading, error, data, sendRequest, reqExtra, reqIdentifier } = useHttp();
+  const { isLoading, error, data, sendRequest, reqExtra, reqIdentifier, clear } = useHttp();
 
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState();
@@ -70,7 +70,7 @@ const Ingredients = () => {
     //       ingredient: { id: responseData.name, ...ingredient }
     //     });
     //   });
-  }, []);
+  }, [sendRequest]);
 
   const removeIngredientHandler = useCallback(ingredientId => {
     sendRequest('firebaseUrl/ingredients/' + ingredientId + '.json',
@@ -80,10 +80,6 @@ const Ingredients = () => {
       'REMOVE_INGREDIENT'
     );
   }, [sendRequest]);
-
-  const clearError = useCallback(() => {
-    // dispatchHttp({ type: 'CLEAR' });
-  }, []);
 
   const ingredientList = useMemo(() => {
     return (
@@ -96,7 +92,7 @@ const Ingredients = () => {
 
   return (
     <div className="App">
-      {error && (<ErrorModal onClose={clearError}>{error}</ErrorModal>)}
+      {error && (<ErrorModal onClose={clear}>{error}</ErrorModal>)}
       <IngredientForm onAddIngredient={addIngredientHandler} loading={isLoading} />
 
       <section>
