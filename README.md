@@ -21,3 +21,5 @@ Code of React - The Complete Guide Course
 11. Workflow - Working with Webpack
 12. Next.js Section Course
 13. Animations in React Apps
+14. React Hooks
+15. Replacing Redux with React Hooks
